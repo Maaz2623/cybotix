@@ -11,7 +11,7 @@ const Navbar = () => {
     <div className="w-full h-16 border flex justify-between items-center px-4 bg-white/5 border-b backdrop-blur-sm">
       <div className="flex justify-center items-center">
         <Image
-          src={`/cybotix.png`}
+          src={`/cybotix-dark.png`}
           alt="logo"
           width={200}
           height={200}
