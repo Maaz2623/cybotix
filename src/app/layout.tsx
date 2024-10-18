@@ -31,6 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="">
+      <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
+      </head>
       <JotaiProvider>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-screen-2xl min-h-screen relative`}
