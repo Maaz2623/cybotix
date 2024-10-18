@@ -4,6 +4,9 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import JotaiProvider from "@/components/jotai-provider";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+import Modals from "@/components/modals";
+import { Toaster } from "sonner";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,17 +30,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
-      >
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <JotaiProvider>
+    <html lang="en" className="">
+      <JotaiProvider>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen relative`}
+        >
+          <ThemeProvider attribute="class" defaultTheme="dark">
             <Navbar />
             {children}
-          </JotaiProvider>
-        </ThemeProvider>
-      </body>
+            <Modals />
+            <Toaster />
+            <BackgroundBeams className="-z-40 fixed top-0 left-0 opacity-80" />
+          </ThemeProvider>
+        </body>
+      </JotaiProvider>
     </html>
   );
 }
