@@ -29,7 +29,7 @@ const Navbar = () => {
       <div className="hidden md:flex">
         {navLinks.map((nav) => (
           <Link
-            className="mx-2 cursor-pointer z-40 hover:underline"
+            className="mx-4 cursor-pointer font-semibold z-40 hover:underline"
             href={nav.link}
             key={nav.link}
           >
