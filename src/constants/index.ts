@@ -26,10 +26,10 @@ export const navLinks = [
     label: "Gallery",
     link: "#gallery"
   },
-  {
-    label: "About Us",
-    link: "#about"
-  }
+  // {
+  //   label: "About Us",
+  //   link: "#about"
+  // }
 ];
 
 export const galleryImages = [
