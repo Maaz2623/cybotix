@@ -1,4 +1,3 @@
-import About from "@/components/about";
 import Footer from "@/components/footer";
 import Gallery from "@/components/gallery";
 import Hero from "@/components/hero";
