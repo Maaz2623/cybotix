@@ -3,15 +3,14 @@ import EmblaCarousel from "./embla-carousel";
 
 const Gallery = () => {
   return (
-    <section id="gallery" className="h-screen justify-start items-center flex flex-col gap-y-4 px-20">
+    <section id="gallery" className="min-h-screen justify-start items-center flex flex-col gap-y-4 px-20">
       <div className=" flex flex-col gap-y-2 mt-16 justify-center items-center">
-        <p className="text-4xl gap-2 font-semibold text-gray-100 flex">
-          Explore Our <span className="text-blue-500">
-            
-             Gallery
-            </span>
+        <p className="text-center text-4xl gap-2 font-semibold text-gray-100">
+          Explore Our <span className="ml-2 md:ml-0 text-blue-500">
+            Gallery
+          </span>
         </p>
-        <p className="text-center w-1/2 text-gray-500">
+        <p className="text-center md:w-1/2 text-gray-500">
           Discover the creativity and talent within the Cybotix community
           through our gallery. Here, we showcase a diverse collection of
           projects, artwork, and innovations shared by our members.

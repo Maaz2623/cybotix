@@ -118,6 +118,7 @@ export const TypewriterEffectSmooth = ({
     };
   });
   const renderWords = () => {
+
     return (
       <div>
         {wordsArray.map((word, idx) => {
@@ -126,7 +127,7 @@ export const TypewriterEffectSmooth = ({
               {word.text.map((char, index) => (
                 <span
                   key={`char-${index}`}
-                  className={cn(`dark:text-white text-black `, word.className)}
+                  className={cn(`dark:text-white text-black text-2xl lg:text-3xl xl:text-5xl`, word.className)}
                 >
                   {char}
                 </span>

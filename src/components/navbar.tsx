@@ -15,11 +15,11 @@ const Navbar = () => {
           alt="logo"
           width={200}
           height={200}
-          className="size-14"
+          className="size-12 md:size-14"
         />
-        <p className="text-2xl font-semibold">CYBOTIXX</p>
+        <p className="text-xl ml-3 font-semibold md:text-2xl md:ml-0">CYBOTIXX</p>
       </div>
-      <div>
+      <div className="hidden md:block">
         {navLinks.map((nav) => (
           <Link
             className="mx-2 cursor-pointer z-40 hover:underline"
