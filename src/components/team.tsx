@@ -4,7 +4,7 @@ import React from "react";
 
 const Team = () => {
   return (
-    <section id="team" className="h-screen justify-start items-center flex flex-col gap-y-4 px-20">
+    <section id="team" className="h-screen justify-start flex flex-col gap-y-4 px-20">
       <div className=" flex flex-col gap-y-2 mt-16 justify-center items-center">
         <p className="text-4xl font-semibold text-gray-100 flex gap-2">
           Our
@@ -16,11 +16,11 @@ const Team = () => {
           community.
         </p>
       </div>
-      <div className=" grid grid-cols-3 gap-5 mt-5">
+      <div className="flex items-center justify-center flex-wrap gap-5 gap-y-10 mt-14">
         {teamMembers.map((member) => (
           <div
             key={member.name}
-            className="w-full  duration-300 cursor-pointer"
+            className="w-[300px]  duration-300 cursor-pointer"
           >
             <div className="h-full shadow-lg backdrop-blur-sm hover:shadow-blue-500 flex gap-x-4 items-center border-gray-600 transition overflow-hidden hover:bg-white/10 border p-4 rounded-lg">
               <div className="bg-white/10 p-2 rounded-full">

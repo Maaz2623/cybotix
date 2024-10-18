@@ -16,8 +16,8 @@ const HomePage = () => {
       <Team />
       <Separator className="w-1/2 mx-auto" />
       <Gallery />
-      <Separator className="w-1/2 mx-auto" />
-      <About />
+      {/* <Separator className="w-1/2 mx-auto" /> */}
+      {/* <About /> */}
       <Footer />
     </div>
   );
