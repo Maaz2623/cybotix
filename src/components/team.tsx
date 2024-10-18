@@ -4,13 +4,13 @@ import React from "react";
 
 const Team = () => {
   return (
-    <section id="team" className="h-screen justify-start flex flex-col gap-y-4 px-20">
-      <div className=" flex flex-col gap-y-2 mt-16 justify-center items-center">
-        <p className="text-4xl font-semibold text-gray-100 flex gap-2">
+    <section id="team" className="min-h-screen justify-start flex flex-col md:gap-y-4 md:px-20">
+      <div className="flex flex-col gap-y-2 mt-16 justify-center items-center">
+        <p className="text-5xl md:text-4xl font-semibold text-gray-100 flex gap-2">
           Our
           <span className="text-blue-500">Team</span>
         </p>
-        <p className="text-center w-1/2 text-gray-500">
+        <p className="text-center md:w-1/2 text-gray-500 px-5 md:px-0 ">
           Explore the profiles below to learn more about our team members, their
           roles, and the unique contributions they make to the Cybotix
           community.

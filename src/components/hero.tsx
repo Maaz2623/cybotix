@@ -13,14 +13,14 @@ const Hero = () => {
   return (
     <section
         id="hero"
-        className="flex flex-col justify-center h-[calc(100vh-64px)] rounded-lg py-20 items-center"
+      className="flex flex-col justify-center rounded-lg py-20 items-center md:h-[calc(100vh-64px)] "
       >
         
-        <TypewriterEffectSmooth words={typewriterWords} />
+        <TypewriterEffectSmooth words={typewriterWords} className='text-xl ' />
         <TextGenerateEffect
           duration={0.5}
           words={textGenerateWords}
-          className="w-1/2 text-center font-light text-gray-500 text-sm"
+          className="md:w-1/2 text-center font-light text-gray-500 text-xs w-[90%] md:text-sm"
         />
         <Button
           onClick={() => router.push("/sign-up")}
