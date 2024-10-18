@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full md:fixed top-0 left-0 h-16 border flex justify-between z-40 items-center px-4 bg-white/5 border-b backdrop-blur-sm">
+    <div className="w-full max-w-screen-2xl md:fixed top-0 left-0 h-16 border flex justify-between z-40 items-center px-4 bg-white/5 border-b backdrop-blur-sm">
       <div className="flex justify-center items-center">
         <Image
           src={`/cybotix-dark.png`}
