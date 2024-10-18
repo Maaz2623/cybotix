@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import JotaiProvider from "@/components/jotai-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,8 +32,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <Navbar />
-          {children}
+          <JotaiProvider>
+            <Navbar />
+            {children}
+          </JotaiProvider>
         </ThemeProvider>
       </body>
     </html>
