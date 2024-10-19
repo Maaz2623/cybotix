@@ -36,14 +36,14 @@ export default function RootLayout({
       </head>
       <JotaiProvider>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-screen-2xl min-h-screen relative`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen relative`}
         >
           <ThemeProvider attribute="class" defaultTheme="dark">
             <Navbar />
             {children}
             <Modals />
             <Toaster />
-            <BackgroundBeams className="-z-40 fixed top-0 left-0 opacity-80" />
+            <BackgroundBeams className="-z-40 opacity-80" />
           </ThemeProvider>
         </body>
       </JotaiProvider>
