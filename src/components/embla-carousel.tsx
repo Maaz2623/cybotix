@@ -27,7 +27,7 @@ const EmblaCarousel = () => {
               height={400}
               key={image}
               quality={90}
-              className="ml-10 rounded-xl opacity-90 cursor-pointer h-[90%] hover:scale-105 duration-200 transition-all"
+              className="ml-10 rounded-xl opacity-90 cursor-pointer h-[90%] hover:scale-105 duration-200 w-full transition-all"
             />
           ))}
         </div>
