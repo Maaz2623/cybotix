@@ -117,4 +117,12 @@ export const teamMembers = [
     name: "Yameen Afroz",
     position: "Core Member",
   },
+  {
+    name: "Chandan P",
+    position: "Core Member",
+  },
+  {
+    name: "Suhas K M",
+    position: "Core Member",
+  },
 ];
