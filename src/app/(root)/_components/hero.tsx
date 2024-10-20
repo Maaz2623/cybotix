@@ -1,14 +1,12 @@
 "use client";
 import React from "react";
-import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
-import { TextGenerateEffect } from "./ui/text-generate-effect";
+import { TypewriterEffectSmooth } from "../../../components/ui/typewriter-effect";
+import { TextGenerateEffect } from "../../../components/ui/text-generate-effect";
 import { textGenerateWords, typewriterWords } from "@/constants";
-import { Button } from "./ui/button";
+import { Button } from "../../../components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { useContactMemoryStore } from "../../store/use-contact-memory-modal";
 
 const Hero = () => {
-  const [, setOpen] = useContactMemoryStore();
   return (
     <section
       id="hero"
@@ -24,7 +22,7 @@ const Hero = () => {
         className="lg:w-1/2 text-center px-3 font-light text-gray-500 text-sm w-full md:px-6 md:text-lg lg:text-xl"
       />
       <Button
-        onClick={() => setOpen(true)}
+        onClick={() => {}}
         className="mt-10 bg-blue-500 cursor-pointer hover:bg-blue-500/80 flex justify-center items-center gap-2 z-10 text-white"
       >
         Join the forum

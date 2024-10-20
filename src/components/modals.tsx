@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ContactModal from "../../modals/contact-modal";
 
 const Modals = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -11,11 +10,7 @@ const Modals = () => {
 
   if (!isMounted) return null;
 
-  return (
-    <>
-      <ContactModal />
-    </>
-  );
+  return <></>;
 };
 
 export default Modals;

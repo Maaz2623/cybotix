@@ -1,22 +1,13 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
-import Navbar from "@/components/navbar";
+import "@/app/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import JotaiProvider from "@/components/jotai-provider";
-import { BackgroundBeams } from "@/components/ui/background-beams";
 import Modals from "@/components/modals";
 import { Toaster } from "sonner";
+import { Inter } from "next/font/google";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["500", "400", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -34,19 +25,13 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
       </head>
-      <JotaiProvider>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen relative`}
-        >
-          <ThemeProvider attribute="class" defaultTheme="dark">
-            <Navbar />
-            {children}
-            <Modals />
-            <Toaster />
-            <BackgroundBeams className="-z-40 opacity-80" />
-          </ThemeProvider>
-        </body>
-      </JotaiProvider>
+      <body className={`${inter.className} antialiased min-h-screen relative`}>
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          {children}
+          <Modals />
+          <Toaster />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

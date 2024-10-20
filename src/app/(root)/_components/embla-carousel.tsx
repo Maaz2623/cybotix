@@ -2,7 +2,7 @@
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import React from "react";
-import { Card, CardContent } from "./ui/card";
+import { Card, CardContent } from "../../../components/ui/card";
 import { galleryImages } from "@/constants";
 import Image from "next/image";
 

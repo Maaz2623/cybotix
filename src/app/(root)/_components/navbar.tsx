@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
-import ThemeSwitcher from "./theme-switcher";
+import ThemeSwitcher from "../../../components/theme-switcher";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
