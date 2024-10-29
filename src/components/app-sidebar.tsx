@@ -25,12 +25,12 @@ import {
 import { NavMain } from "./nav-main";
 import { useGetForum } from "@/features/forums/api/use-get-forum";
 import { useForumId } from "@/features/forums/hooks/use-forum-id";
+import { NavUser } from "./nav-user";
 
 // This is sample data.
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const forumId = useForumId();
-
 
   const { data: forum } = useGetForum({ forumId });
 
@@ -64,13 +64,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         title: "Overview",
         url: `/${forumId}/dashboard`,
         icon: BookOpen,
-        disabled: true
+        disabled: true,
       },
       {
         title: "Gallery",
         url: `/${forumId}/dashboard/gallery`,
         icon: Images,
-        disabled: true
+        disabled: true,
       },
 
       {
@@ -110,7 +110,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <NavMain items={data.navMain} />
       </SidebarContent>
-      <SidebarFooter>{/* <NavUser /> */}</SidebarFooter>
+      <SidebarFooter>
+        <NavUser />
+      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   );

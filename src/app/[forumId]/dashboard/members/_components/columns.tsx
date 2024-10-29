@@ -9,8 +9,6 @@ import {
 } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
 
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
 export type Member = {
   memberName: string;
   memberRole: "SUPER_ADMIN" | "ADMIN" | "MODERATOR" | "MEMBER";
@@ -68,6 +66,14 @@ export const columns: ColumnDef<Member>[] = [
   {
     accessorKey: "memberName",
     header: "Member Name",
+    cell: ({ row }) => {
+
+      return (
+        <div>
+          <p>{row.getValue("memberName")}</p>
+        </div>
+      );
+    },
   },
   {
     accessorKey: "linkedinId",

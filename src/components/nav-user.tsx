@@ -1,41 +1,19 @@
 "use client";
 
 import {
-  BadgeCheck,
-  Bell,
-  ChevronsUpDown,
-  CreditCard,
-  LogOut,
-  Sparkles,
-} from "lucide-react";
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
 } from "@/components/ui/sidebar";
-import { useUser } from "@clerk/nextjs";
+import { UserButton, useUser } from "@clerk/nextjs";
 
 export function NavUser() {
-  const { isMobile } = useSidebar();
 
   const user = useUser();
 
   return (
     <SidebarMenu>
       <SidebarMenuItem>
-        <DropdownMenu>
+        {/* <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
               size="lg"
@@ -106,7 +84,14 @@ export function NavUser() {
               Log out
             </DropdownMenuItem>
           </DropdownMenuContent>
-        </DropdownMenu>
+        </DropdownMenu> */}
+        <div className="w-full gap-2 truncate justify-start p-1 items-center flex">
+          <UserButton />
+          <div className="">
+            <p className="font-medium text-sm">{user.user?.fullName}</p>
+            <p className="text-xs text-muted-foreground">{user.user?.primaryEmailAddress?.emailAddress}</p>
+          </div>
+        </div>
       </SidebarMenuItem>
     </SidebarMenu>
   );

@@ -1,14 +1,6 @@
 "use client";
 import React from "react";
 import { useCreateParticipantModal } from "../store/use-create-participant-modal";
-import {
-  AlertDialog,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -32,6 +24,13 @@ import { Button } from "@/components/ui/button";
 import { useCreateParticipant } from "../api/use-create-participant";
 import { useEventId } from "@/features/events/hooks/use-event-id";
 import { createParticipantSchema } from "../schemas";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
+
 
 const CreateParticipantModal = ({ userId }: { userId: string }) => {
   const eventId = useEventId();
@@ -74,13 +73,13 @@ const CreateParticipantModal = ({ userId }: { userId: string }) => {
   }
 
   return (
-    <AlertDialog open={open} onOpenChange={handleClose}>
-      <AlertDialogContent className="w-screen h-[fit-content]">
-        <AlertDialogHeader>
-          <AlertDialogTitle className="text-2xl">
+    <Dialog open={open} onOpenChange={handleClose}>
+      <DialogContent className="w-full h-fit">
+        <DialogHeader>
+          <DialogTitle className="text-2xl">
             Confirm Participation
-          </AlertDialogTitle>
-        </AlertDialogHeader>
+          </DialogTitle>
+        </DialogHeader>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
@@ -204,18 +203,13 @@ const CreateParticipantModal = ({ userId }: { userId: string }) => {
                 </FormItem>
               )}
             />
-            <AlertDialogFooter className="">
-              <AlertDialogCancel disabled={isPending} className="">
-                Cancel
-              </AlertDialogCancel>
               <Button disabled={isPending} type="submit" className="">
-                Confirm Participation
+                Submit
               </Button>
-            </AlertDialogFooter>
           </form>
         </Form>
-      </AlertDialogContent>
-    </AlertDialog>
+      </DialogContent>
+    </Dialog>
   );
 };
 

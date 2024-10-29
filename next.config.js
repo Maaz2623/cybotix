@@ -10,9 +10,9 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "utfs.io",
+        hostname: "img.clerk.com",
         port: "",
-        pathname: `/f/lli57a7u9y/**`,
+        pathname: "/**",
       },
     ],
   },
