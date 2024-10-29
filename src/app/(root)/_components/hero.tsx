@@ -10,7 +10,7 @@ import { redirect, useRouter } from "next/navigation";
 import { useGetForums } from "@/features/forums/api/use-get-forums";
 
 const Hero = () => {
-  const { data: forums, isLoading: forumLoading } = useGetForums();
+  const { data: forums } = useGetForums();
 
   const router = useRouter();
   if (!forums) {
