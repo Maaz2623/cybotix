@@ -3,11 +3,9 @@ import React from "react";
 import { BackgroundBeams } from "./_components/ui/background-beams";
 import Hero from "./_components/hero";
 import Navbar from "./_components/navbar";
-import { useGetForums } from "@/features/forums/api/use-get-forums";
 import { GetForum } from "@/features/forums/actions/get-forum.action";
 
 const HomePage = async () => {
-
 
   const forums = await GetForum()
 
