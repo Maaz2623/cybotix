@@ -75,7 +75,7 @@ const CreateParticipantModal = ({ userId }: { userId: string }) => {
 
   return (
     <AlertDialog open={open} onOpenChange={handleClose}>
-      <AlertDialogContent className="w-full h-[fit-content]">
+      <AlertDialogContent className="w-screen h-[fit-content]">
         <AlertDialogHeader>
           <AlertDialogTitle className="text-2xl">
             Confirm Participation
