@@ -69,6 +69,7 @@ const CreateParticipantModal = ({ userId }: { userId: string }) => {
         },
       }
     );
+    console.log(values)
   }
 
   return (
@@ -206,7 +207,7 @@ const CreateParticipantModal = ({ userId }: { userId: string }) => {
               <AlertDialogCancel disabled={isPending} className="">
                 Cancel
               </AlertDialogCancel>
-              <Button disabled={isPending} type="submit" className="">
+              <Button type="submit" className="">
                 Confirm Participation
               </Button>
             </AlertDialogFooter>

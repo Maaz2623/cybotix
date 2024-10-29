@@ -71,7 +71,7 @@ const EventIdPage = () => {
           <UserButton />
         </div>
       </header>
-      <div className="flex flex-1 flex-col gap-4 p-4 pt-2">
+      <div className="flex flex-1 max-w-screen flex-col gap-4 p-4 pt-2">
         <div className="w-full md:justify-start items-center sm:flex p-3 md:items-center gap-4 bg-muted/50 rounded-lg px-5">
           <div className="aspect-video relative h-40 md:h-full rounded-lg bg-blue-500 overflow-hidden cursor-pointer hover:opacity-80 transition-all">
             {/* @ts-ignore */}

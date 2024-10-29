@@ -18,9 +18,9 @@ const EventWinners = ({ eventId }: { eventId: string }) => {
           <p>Loading...</p>
         </div>
       ) : winners?.total === 0 ? (
-        <div className="w-full h-full flex justify-center text-muted-foreground gap-2 items-center p-10">
+        <div className="w-full h-full flex flex-col justify-center text-muted-foreground gap-2 items-center p-10">
           <TriangleAlertIcon className="size-5" />
-          <p className="">
+          <p className="text-center">
             Either the winners have not been announced yet, or the event has not
             yet completed or begun
           </p>
