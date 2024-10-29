@@ -19,6 +19,7 @@ export function NavMain({
     title: string;
     url: string;
     icon?: LucideIcon;
+    disabled?: boolean;
   }[];
 }) {
   const pathname = usePathname();
@@ -31,20 +32,24 @@ export function NavMain({
           const isActive = pathname === item.url;
 
           return (
-            <Link href={item.url} key={item.url}>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  className={cn(
-                    "h-10",
-                    isActive && "bg-blue-600 hover:bg-blue-600"
-                  )}
-                  tooltip={item.title}
-                >
-                  {item.icon && <item.icon />}
-                  <span>{item.title}</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </Link>
+            <>
+              {!item.disabled && (
+                <Link href={item.url} key={item.url}>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton
+                      className={cn(
+                        "h-10",
+                        isActive && "bg-blue-600 hover:bg-blue-600"
+                      )}
+                      tooltip={item.title}
+                    >
+                      {item.icon && <item.icon />}
+                      <span>{item.title}</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </Link>
+              )}
+            </>
           );
         })}
       </SidebarMenu>

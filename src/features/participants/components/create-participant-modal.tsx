@@ -35,6 +35,7 @@ import { createParticipantSchema } from "../schemas";
 
 const CreateParticipantModal = ({ userId }: { userId: string }) => {
   const eventId = useEventId();
+  
   const { mutate: participate, isPending } = useCreateParticipant();
 
   const [open, setOpen] = useCreateParticipantModal();
@@ -207,7 +208,7 @@ const CreateParticipantModal = ({ userId }: { userId: string }) => {
               <AlertDialogCancel disabled={isPending} className="">
                 Cancel
               </AlertDialogCancel>
-              <Button type="submit" className="">
+              <Button disabled={isPending} type="submit" className="">
                 Confirm Participation
               </Button>
             </AlertDialogFooter>

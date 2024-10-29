@@ -64,11 +64,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         title: "Overview",
         url: `/${forumId}/dashboard`,
         icon: BookOpen,
+        disabled: true
       },
       {
         title: "Gallery",
         url: `/${forumId}/dashboard/gallery`,
         icon: Images,
+        disabled: true
       },
 
       {

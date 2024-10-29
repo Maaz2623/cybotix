@@ -43,7 +43,7 @@ export default function MembersPage() {
               </BreadcrumbItem>
               <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>
-                <BreadcrumbPage>Gallery</BreadcrumbPage>
+                <BreadcrumbPage>Members</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -51,7 +51,7 @@ export default function MembersPage() {
       </header>
       <div className="w-full">
         <p className="lg:text-3xl md:text-2xl sm:text-xl text-md font-semibold p-4">
-          A Gallery of Moments and Milestones
+          Our Team
         </p>
       </div>
       <div className="flex flex-1 flex-col gap-4 p-4 pt-2">
