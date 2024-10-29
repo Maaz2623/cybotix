@@ -7,7 +7,7 @@ interface EventRules {
 const EventRules = ({ rules }: EventRules) => {
   console.log(rules);
 
-  return <div className="h-full space-y-4 p-5 w-full bg-muted/50 flex-col">
+  return <div className="h-full space-y-4 p-5 w-full bg-muted/50 flex-col rounded-lg">
     {rules.map((rule, index) => (
         <p key={index} className="px-2 text-md bg-white/5 font-sans w-fit py-0.5 rounded-md border">{" * "}{rule}</p>
     ))}

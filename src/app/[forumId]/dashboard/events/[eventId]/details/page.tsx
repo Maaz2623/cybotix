@@ -18,20 +18,20 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useGetParticipants } from "@/features/participants/api/use-get-participants";
 import { format } from "date-fns";
-import { useCreateParticipantModal } from "@/features/participants/store/use-create-participant-modal";
 import { UserButton } from "@clerk/nextjs";
 import { useForumId } from "@/features/forums/hooks/use-forum-id";
+import { useRouter } from "next/navigation";
 
 const EventIdPage = () => {
+  const router = useRouter();
   const eventId = useEventId();
-  const forumId = useForumId()
+  const forumId = useForumId();
   const { data: participants } = useGetParticipants({ eventId });
 
   const { data: event, isLoading: eventLoading } = useGetEvent({
     eventId,
   });
 
-  const [, setOpen] = useCreateParticipantModal();
   if (eventLoading) {
     return <p>Loading Event</p>;
   }
@@ -71,9 +71,9 @@ const EventIdPage = () => {
           <UserButton />
         </div>
       </header>
-      <div className="flex flex-1 flex-col gap-4 p-4 pt-2">
-        <div className="w-full md:justify-start items-center sm:flex p-3 md:items-center gap-4 bg-muted/50 rounded-lg px-5">
-          <div className="aspect-video relative h-40 md:h-full rounded-lg bg-blue-500 overflow-hidden cursor-pointer hover:opacity-80 transition-all">
+      <div className="flex flex-col md:flex gap-4 justify-center items-center p-4 pt-2">
+        <div className="md:flex gap-3 md:w-full border p-5 rounded-lg bg-muted/40">
+          <div className="aspect-video relative h-40 border-white/10 border md:h-full rounded-lg bg-blue-500 overflow-hidden cursor-pointer hover:opacity-80 transition-all">
             {/* @ts-ignore */}
             <Image src={event.imageUrl} alt="event image" fill />
           </div>
@@ -99,7 +99,11 @@ const EventIdPage = () => {
               </p>
             </div>
             <Button
-              onClick={() => setOpen(true)}
+              onClick={() =>
+                router.push(
+                  `/${forumId}/dashboard/events/${eventId}/participate`
+                )
+              }
               className="w-fit text-green-300 hover:text-green-300/80 bg-green-800/20 hover:bg-green-800/20"
               variant={`secondary`}
             >

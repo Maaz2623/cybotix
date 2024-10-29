@@ -65,23 +65,27 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         url: `/${forumId}/dashboard`,
         icon: BookOpen,
         disabled: true,
+        isActive: false,
       },
       {
         title: "Gallery",
         url: `/${forumId}/dashboard/gallery`,
         icon: Images,
         disabled: true,
+        isActive: false,
       },
 
       {
         title: "Events",
         url: `/${forumId}/dashboard/events`,
         icon: Calendar,
+        isActive: false,
       },
       {
         title: "Members",
         url: `/${forumId}/dashboard/members`,
         icon: Users,
+        isActive: false,
       },
     ],
     projects: [
@@ -103,7 +107,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     ],
   };
   return (
-    <Sidebar collapsible="icon" {...props}>
+    <Sidebar collapsible="icon" variant="sidebar" {...props}>
       <SidebarHeader>
         <TeamSwitcher />
       </SidebarHeader>

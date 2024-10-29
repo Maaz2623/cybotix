@@ -4,19 +4,15 @@ import { InferRequestType, InferResponseType } from "hono";
 import { client } from "@/lib/rpc";
 import { toast } from "sonner";
 
-type ResponseType = InferResponseType<
-  (typeof client.api.participants.create)["$post"]
->;
-type RequestType = InferRequestType<
-  (typeof client.api.participants.create)["$post"]
->;
+type ResponseType = InferResponseType<typeof client.api.participants.$post>;
+type RequestType = InferRequestType<typeof client.api.participants.$post>;
 
 export const useCreateParticipant = () => {
   const queryClient = useQueryClient();
 
   const mutate = useMutation<ResponseType, Error, RequestType>({
     mutationFn: async ({ form }) => {
-      const response = await client.api.participants.create.$post({
+      const response = await client.api.participants.$post({
         form,
       });
       if (!response.ok) {

@@ -32,31 +32,31 @@ const EventDetails = () => {
   console.log(event);
 
   return (
-    <div className="rounded-lg h-full flex flex-col p-1">
+    <div className="h-full flex flex-col p-1">
       <Tabs
         defaultValue="Overview"
         className="rounded-none h-full overflow-hidden"
       >
-        <TabsList className="min-w-full flex bg-transparent p-0 gap-3 rounded-none border-b">
+        <TabsList className="w-full flex bg-transparent p-0 gap-3 rounded-none border-b">
           {eventDetailTabs.map((tab) => (
             <TabsTrigger key={tab.name} className="" value={tab.name}>
               {tab.name}
             </TabsTrigger>
           ))}
         </TabsList>
-        <TabsContent className="h-full" value="Overview">
+        <TabsContent className="h-full rouned-lg" value="Overview">
           {/* @ts-expect-error */}
           <EventOverView overview={event?.eventOverview} />
         </TabsContent>
-        <TabsContent className="h-full" value="Rules">
+        <TabsContent className="h-full rouned-lg" value="Rules">
           {/* /eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
           {/* @ts-ignore */}
           <EventRules rules={event?.eventRules} />
         </TabsContent>
-        <TabsContent value="Participants">
+        <TabsContent value="Participants" className="w-full rouned-lg">
           <EventParticipants eventId={eventId} />
         </TabsContent>
-        <TabsContent value="Winners">
+        <TabsContent value="Winners" className="w-full rouned-lg">
           <EventWinners eventId={eventId} />
         </TabsContent>
       </Tabs>

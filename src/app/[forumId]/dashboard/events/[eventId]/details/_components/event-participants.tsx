@@ -17,8 +17,10 @@ const EventParticipants = ({ eventId }: { eventId: string }) => {
           <p>Loading...</p>
         </div>
       ) : (
-        // @ts-ignore
-        <DataTable columns={columns} data={participants?.documents} />
+        <div className="md:w-full w-full overflow-hidden">
+          {/* @ts-ignore */}
+          <DataTable columns={columns} data={participants?.documents} />
+        </div>
       )}
     </div>
   );

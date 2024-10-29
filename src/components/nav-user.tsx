@@ -1,13 +1,9 @@
 "use client";
 
-import {
-  SidebarMenu,
-  SidebarMenuItem,
-} from "@/components/ui/sidebar";
+import { SidebarMenu, SidebarMenuItem } from "@/components/ui/sidebar";
 import { UserButton, useUser } from "@clerk/nextjs";
 
 export function NavUser() {
-
   const user = useUser();
 
   return (
@@ -85,11 +81,13 @@ export function NavUser() {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu> */}
-        <div className="w-full gap-2 truncate justify-start p-1 items-center flex">
+        <div className="w-full gap-2 truncate justify-start p-1 items-center hidden lg:flex">
           <UserButton />
           <div className="">
             <p className="font-medium text-sm">{user.user?.fullName}</p>
-            <p className="text-xs text-muted-foreground">{user.user?.primaryEmailAddress?.emailAddress}</p>
+            <p className="text-xs text-muted-foreground">
+              {user.user?.primaryEmailAddress?.emailAddress}
+            </p>
           </div>
         </div>
       </SidebarMenuItem>

@@ -13,7 +13,6 @@ import { useGetEvents } from "@/features/events/api/use-get-events";
 import { useForumId } from "@/features/forums/hooks/use-forum-id";
 import EventCard from "./_components/event-card";
 import { format } from "date-fns";
-import { UserButton } from "@clerk/nextjs";
 
 export default function Page() {
   const forumId = useForumId();
@@ -29,7 +28,7 @@ export default function Page() {
   }
 
   return (
-    <SidebarInset>
+    <SidebarInset className="shrink-0">
       <header className="flex px-4 h-16 justify-between items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
         <div className="flex items-center gap-2 px-4">
           <SidebarTrigger className="-ml-1" />
@@ -48,7 +47,6 @@ export default function Page() {
             </BreadcrumbList>
           </Breadcrumb>
         </div>
-      <UserButton />
       </header>
       <div className="w-full">
         <p className="lg:text-3xl md:text-2xl sm:text-xl text-md font-semibold p-4">

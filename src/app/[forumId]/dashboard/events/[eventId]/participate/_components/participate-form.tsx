@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { useCreateParticipantModal } from "../store/use-create-participant-modal";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -11,7 +10,11 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { createParticipantSchema } from "@/features/participants/schemas";
+import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
+import { useEventId } from "@/features/events/hooks/use-event-id";
+import { useRouter } from "next/navigation";
 import {
   Select,
   SelectContent,
@@ -20,24 +23,17 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { useCreateParticipant } from "../api/use-create-participant";
-import { useEventId } from "@/features/events/hooks/use-event-id";
-import { createParticipantSchema } from "../schemas";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { useForm } from "react-hook-form";
+import Link from "next/link";
+import { participate } from "@/features/participants/actions/participate.action";
+import { toast } from "sonner";
+import { useForumId } from "@/features/forums/hooks/use-forum-id";
 
-const CreateParticipantModal = ({ userId }: { userId: string }) => {
+const ParticipateForm = ({ userId }: { userId: string | undefined }) => {
+  const forumId = useForumId();
   const eventId = useEventId();
 
-  const { mutate: participate, isPending } = useCreateParticipant();
+  const router = useRouter();
 
-  const [open, setOpen] = useCreateParticipantModal();
-  // 1. Define your form.
   const form = useForm<z.infer<typeof createParticipantSchema>>({
     resolver: zodResolver(createParticipantSchema),
     defaultValues: {
@@ -51,31 +47,34 @@ const CreateParticipantModal = ({ userId }: { userId: string }) => {
     },
   });
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof createParticipantSchema>) {
-    participate(
-      {
-        form: values,
-      },
-      {
-        onSuccess: async () => {
-          setOpen(false);
-          form.reset();
-        },
+    try {
+      const data = await participate({
+        name: values.name,
+        course: values.course,
+        semester: values.semester,
+        studentId: values.studentId,
+        phoneNumber: values.phoneNumber,
+        eventId: eventId,
+      });
+      router.push(`/${forumId}/dashboard/events/${eventId}/details`);
+      if (!data?.success) {
+        return toast.error("Already registered");
       }
-    );
+      toast.success("Registered successfully");
+    } catch (error) {
+      toast.error("Some error occured");
+      console.log(error);
+    }
   }
 
   return (
-    <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="w-full h-fit">
-        <DialogHeader>
-          <DialogTitle className="text-2xl">Confirm Participation</DialogTitle>
-        </DialogHeader>
+    <div className="min-h-screen w-screen bg-black flex justify-center items-center flex-col border">
+      <div className="bg-muted/50 lg:p-10 w-[300px] sm:w-[400px] md:w-[500px] rounded-lg p-5">
+        <p className="w-full text-center items-center text-3xl font-semibold mb-4">
+          Participate
+        </p>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
@@ -90,7 +89,6 @@ const CreateParticipantModal = ({ userId }: { userId: string }) => {
                     <FormLabel>Full Name</FormLabel>
                     <FormControl>
                       <Input
-                        disabled={isPending}
                         placeholder="shadcn"
                         className="ring-1 focus-visible:ring-blue-500 focus-visible:ring-offset-0"
                         {...field}
@@ -112,7 +110,6 @@ const CreateParticipantModal = ({ userId }: { userId: string }) => {
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
-                        disabled={isPending}
                       >
                         <FormControl>
                           <SelectTrigger>
@@ -138,7 +135,6 @@ const CreateParticipantModal = ({ userId }: { userId: string }) => {
                       <FormLabel>Semester</FormLabel>
                       <Select
                         onValueChange={field.onChange}
-                        disabled={isPending}
                         defaultValue={field.value}
                       >
                         <FormControl>
@@ -170,7 +166,6 @@ const CreateParticipantModal = ({ userId }: { userId: string }) => {
                   <FormControl>
                     <Input
                       maxLength={10}
-                      disabled={isPending}
                       placeholder="e.g.23BCAJC###"
                       className=""
                       {...field}
@@ -188,7 +183,6 @@ const CreateParticipantModal = ({ userId }: { userId: string }) => {
                   <FormLabel>Phone Number</FormLabel>
                   <FormControl>
                     <Input
-                      disabled={isPending}
                       type="number"
                       maxLength={10}
                       placeholder="Enter your mobile number"
@@ -199,14 +193,22 @@ const CreateParticipantModal = ({ userId }: { userId: string }) => {
                 </FormItem>
               )}
             />
-            <Button disabled={isPending} type="submit" className="">
-              Submit
-            </Button>
+            <p className="text-sm">
+              If you are facing any issue registering, please{" "}
+              <Link
+                target="_blank"
+                href={`https://docs.google.com/forms/d/e/1FAIpQLSfM6CMfekK90m9kpZjHEDrjo-eMNuJ5Dve2TFLLtVe78G-R6w/viewform?usp=sharing`}
+                className="text-blue-500 cursor-pointer"
+              >
+                click here
+              </Link>
+            </p>
+            <Button type="submit">Submit</Button>
           </form>
         </Form>
-      </DialogContent>
-    </Dialog>
+      </div>
+    </div>
   );
 };
 
-export default CreateParticipantModal;
+export default ParticipateForm;

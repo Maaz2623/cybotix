@@ -29,7 +29,8 @@ export function NavMain({
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
       <SidebarMenu className="gap-y-2">
         {items.map((item) => {
-          const isActive = pathname === item.url;
+          const url = item.url.toLowerCase();
+          const isActive = pathname.includes(url);
 
           return (
             <>
