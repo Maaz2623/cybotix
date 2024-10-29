@@ -1,16 +1,26 @@
 "use client";
-import React, { useEffect, useState } from "react";
 
-const Modals = () => {
-  const [isMounted, setIsMounted] = useState(false);
+import CreateParticipantModal from "@/features/participants/components/create-participant-modal";
+import { useAuth } from "@clerk/nextjs";
+import { useEffect, useState } from "react";
+
+export const Modals = () => {
+  const [mounted, setMounted] = useState(false);
+  const { userId } = useAuth();
 
   useEffect(() => {
-    setIsMounted(true);
+    setMounted(true);
   }, []);
 
-  if (!isMounted) return null;
+  if (!mounted) return null;
 
-  return <></>;
+  if (!userId) {
+    return null;
+  }
+
+  return (
+    <>
+      <CreateParticipantModal userId={userId} />
+    </>
+  );
 };
-
-export default Modals;
