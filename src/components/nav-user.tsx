@@ -81,7 +81,7 @@ export function NavUser() {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu> */}
-        <div className="w-full gap-2 truncate justify-start p-1 items-center hidden lg:flex">
+        <div className="w-full gap-2 truncate justify-start p-1 items-center flex">
           <UserButton />
           <div className="">
             <p className="font-medium text-sm">{user.user?.fullName}</p>

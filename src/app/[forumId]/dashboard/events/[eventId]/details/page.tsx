@@ -18,7 +18,6 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useGetParticipants } from "@/features/participants/api/use-get-participants";
 import { format } from "date-fns";
-import { UserButton } from "@clerk/nextjs";
 import { useForumId } from "@/features/forums/hooks/use-forum-id";
 import { useRouter } from "next/navigation";
 
@@ -66,9 +65,6 @@ const EventIdPage = () => {
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-        </div>
-        <div className="mr-6">
-          <UserButton />
         </div>
       </header>
       <div className="flex flex-col md:flex gap-4 justify-center items-center p-4 pt-2">
