@@ -14,7 +14,6 @@ import { useForumId } from "@/features/forums/hooks/use-forum-id";
 import EventCard from "./_components/event-card";
 import { format } from "date-fns";
 import { UserButton } from "@clerk/nextjs";
-import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Page() {
   const forumId = useForumId();

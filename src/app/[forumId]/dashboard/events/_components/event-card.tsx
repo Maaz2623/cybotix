@@ -14,7 +14,6 @@ interface EventCardProps {
 }
 
 const EventCard = ({
-  eventName,
   imageUrl,
   date,
   eventId,

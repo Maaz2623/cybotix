@@ -3,7 +3,6 @@ import React from "react";
 import { useCreateParticipantModal } from "../store/use-create-participant-modal";
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogFooter,
