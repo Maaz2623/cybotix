@@ -12,6 +12,8 @@ const Hero = ({forumId}: {forumId: string | undefined}) => {
   
   const router = useRouter();
 
+  
+
   return (
     <section
       id="hero"

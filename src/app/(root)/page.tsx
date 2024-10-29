@@ -4,18 +4,20 @@ import { BackgroundBeams } from "./_components/ui/background-beams";
 import Hero from "./_components/hero";
 import Navbar from "./_components/navbar";
 import { useGetForums } from "@/features/forums/api/use-get-forums";
+import { GetForum } from "@/features/forums/actions/get-forum.action";
 
-const HomePage = () => {
+const HomePage = async () => {
 
-  const { data: forums } = useGetForums();
 
-  const firstForumId = forums?.documents[0].$id
+  const forums = await GetForum()
+
+  const forumId = forums?.documents[0].$id
 
   return (
     <>
       <BackgroundBeams className="-z-40 opacity-80" />
       <Navbar />
-      <Hero forumId={firstForumId} />
+      <Hero forumId={forumId} />
     </>
   );
 };
