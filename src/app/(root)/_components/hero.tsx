@@ -13,11 +13,6 @@ const Hero = () => {
   const { data: forums, isLoading: forumLoading } = useGetForums();
 
   const router = useRouter();
-
-  if (forumLoading) {
-    return <div></div>;
-  }
-
   if (!forums) {
     return redirect(`/`);
   }
