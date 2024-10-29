@@ -6,8 +6,8 @@ import { textGenerateWords, typewriterWords } from "@/constants";
 import { Button } from "../../../components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { redirect, useRouter } from "next/navigation";
 import { useGetForums } from "@/features/forums/api/use-get-forums";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
   
