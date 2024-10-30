@@ -32,7 +32,10 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider appearance={{
-      baseTheme: dark
+      baseTheme: dark,
+      layout: {
+        unsafe_disableDevelopmentModeWarnings: true
+      }
     }}>
       <html lang="en">
         <head>
