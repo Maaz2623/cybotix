@@ -29,8 +29,4 @@ export const columns: ColumnDef<Participant>[] = [
     accessorKey: "studentId",
     header: "Student ID",
   },
-  {
-    accessorKey: "phoneNumber",
-    header: "Phone Number",
-  },
 ];
