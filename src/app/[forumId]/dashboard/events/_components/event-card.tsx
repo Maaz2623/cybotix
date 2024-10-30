@@ -42,8 +42,8 @@ const EventCard = ({ imageUrl, date, eventId, ended }: EventCardProps) => {
         <div className="flex justify-between items-center">
           {!ended && (
             <div className="flex justify-center items-center w-fit gap-1">
-              <div className="h-2 bg-blue-500 rounded-full animate-pulse w-2" />
-              <p className="text-sm ">Upcoming</p>
+              <div className="h-2 bg-blue-500 rounded-full w-2" />
+              <p className="text-sm ">Completed</p>
             </div>
           )}
           <p className="text-[10px] truncate shrink-0 md:text-sm border px-1 h-6 flex justify-center items-center bg-white/20 rounded-md">
