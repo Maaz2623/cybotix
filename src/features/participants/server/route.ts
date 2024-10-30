@@ -36,7 +36,7 @@ const app = new Hono()
     const participants = await databases.listDocuments(
       DATABASE_ID,
       PARTICIPANTS_ID,
-      [Query.equal("eventId", eventId)]
+      [Query.equal("eventId", eventId), Query.limit(100)]
     );
 
     if (!participants) {
@@ -70,7 +70,7 @@ const app = new Hono()
         semester,
         eventId,
         userId,
-      }
+      },
     );
 
     return c.json({
