@@ -95,6 +95,8 @@ const EventIdPage = () => {
               </p>
             </div>
             <Button
+              // @ts-ignore
+              disabled={true}
               onClick={() =>
                 router.push(
                   `/${forumId}/dashboard/events/${eventId}/participate`

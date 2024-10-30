@@ -6,7 +6,6 @@ import { ColumnDef } from "@tanstack/react-table";
 // You can use a Zod schema here if you want.
 export type Winner = {
   winnerName: string;
-  phoneNumber: string;
   course: string;
   semester: string;
   studentId: string;
@@ -33,9 +32,5 @@ export const columns: ColumnDef<Winner>[] = [
   {
     accessorKey: "studentId",
     header: "Student ID",
-  },
-  {
-    accessorKey: "phoneNumber",
-    header: "Phone Number",
   },
 ];
